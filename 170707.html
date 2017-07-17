@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>2017 都市部 部旅行 Gallery</title>
+</head>
+
+<body>
+  <h2>2017 都市部 部旅行 </h2>
+  <div class="links-panel">
+    <a href="img.zip" target="_blank" class="download-button"><i class="fa fa-download fa-lg"></i> Download</a>
+  </div>
+  <p>部旅行のご参加ありがとうございました！</p>
+  <p>旅行中に撮った写真をまとめました。</p>
+  <div class="demo-container">
+    <div class="control-panel">
+      <span class="on-off-group">
+        <label class="control-panel-label">Off / On</label>
+        <input class='tgl tgl-ios' id='main-toggle' type='checkbox' checked="checked">
+          <label class='tgl-btn' for='main-toggle'></label>
+        </span>
+        <span class="heading-group">部旅行 写真集</span>
+
+        <span class="spec-group">
+        <label for="columns-spec" class="control-panel-label">Max Columns</label>
+          <input class="control-panel-input" type="number" min="1" step="1" id="columns-spec" value="3" />
+          <label for="width-spec" class="control-panel-label">Min Width</label>
+          <input class="control-panel-input" type="number" min="0" step="1" id="width-spec" value="0" />
+          <label for="margin-spec" class="control-panel-label">Margin</label>
+          <input class="control-panel-input" type="number" min="0" step="1" id="margin-spec" value="10" />
+        </span>
+      </div>
+      </div>
+    <ul id="gallery-container">
+      <li><img src="img_org/P7073582-compressor.jpg"/></li>
+      <li><img src="img_org/P7073607-compressor.jpg" /></li>
+      <li><img src="img_org/P7073608-compressor.jpg" /></li>
+      <li><img src="img_org/P7073614-compressor.jpg" /></li>
+      <li><img src="img_org/P7073615-compressor.jpg" /></li>
+      <li><img src="img_org/P7073617-compressor.jpg" /></li>
+      <li><img src="img_org/P7073619-compressor.jpg" /></li>
+      <li><img src="img_org/P7073626-compressor.jpg" /></li>
+      <li><img src="img_org/P7073627-compressor.jpg" /></li>
+      <li><img src="img_org/P7073628-compressor.jpg" /></li>
+      <li><img src="img_org/P7073629-compressor.jpg" /></li>
+      <li><img src="img_org/P7073630-compressor.jpg" /></li>
+      <li><img src="img_org/P7073634-compressor.jpg" /></li>
+      <li><img src="img_org/P7073638-compressor.jpg" /></li>
+      <li><img src="img_org/P7073639-compressor.jpg" /></li>
+      <li><img src="img_org/P7073642-compressor.jpg" /></li>
+      <li><img src="img_org/P7073645-compressor.jpg" /></li>
+      <li><img src="img_org/P7073652-compressor.jpg" /></li>
+      <li><img src="img_org/DSC_0327_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0328_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0330_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0333_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0335_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0337_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0339_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0344_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0350_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0351_mini.JPG" /></li>
+      <li><img src="img_org/DSC_0352_mini.JPG" /></li>
+    </ul>
+  </div>
+
+  <hr id="end-line" />
+  <div class="footer">
+    <span class="footer-content">
+      <a href="img.zip" target="_blank" class="footer-product-link">
+        <i class="fa fa-download fa-3x"></i>
+      </a>
+    </span>
+    <span class="footer-content">
+      <p>&copy; Neeraj DeLima </p>
+      <p>Edited by HYK </p>
+    </span>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="style.js"></script>
+  <script>
+    $(function() {
+      $(window).load(function() {
+        $('#gallery-container').snapGallery({
+          minWidth: parseInt($('#width-spec').val()),
+          maxCols: parseInt($('#columns-spec').val()),
+          margin: parseInt($('#margin-spec').val())
+        });
+      });
+    })
+  </script>
+  <script>
+    $(function() {
+      $(document).ready(function() {
+        $("#main-toggle").change(function() {
+          if (this.checked) {
+            $('#gallery-container').snapGallery({
+              minWidth: parseInt($('#width-spec').val()),
+              maxCols: parseInt($('#columns-spec').val()),
+              margin: parseInt($('#margin-spec').val())
+            });
+          } else {
+            $('#gallery-container').removeAttr('style');
+            $('#gallery-container *').removeAttr('style');
+          }
+        });
+        $("#width-spec").change(function() {
+          $('#gallery-container').snapGallery({
+            minWidth: parseInt($(this).val()),
+            maxCols: parseInt($('#columns-spec').val()),
+            margin: parseInt($('#margin-spec').val())
+          });
+        });
+        $("#columns-spec").change(function() {
+          $('#gallery-container').snapGallery({
+            maxCols: parseInt($(this).val()),
+            minWidth: parseInt($('#width-spec').val()),
+            margin: parseInt($('#margin-spec').val())
+          });
+        });
+        $('#margin-spec').change(function() {
+          $('#gallery-container').snapGallery({
+            margin: parseInt($(this).val()),
+            minWidth: parseInt($('#width-spec').val()),
+            maxCols: parseInt($('#columns-spec').val())
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
